@@ -3,6 +3,18 @@ DirectiveMadness = angular.module('DirectiveMadness', []);
 DirectiveMadness.controller("DirectiveCtrl",
   ["$scope", function($scope) {
     $scope.formNumber;
+    $scope.direction;
+    $scope.getMouseDirection = function(direction) {
+      $scope.direction = direction;
+    };
+    $scope.hover;
+    $scope.getHoverState = function(state) {
+      $scope.hover = state;
+    }
+    $scope.clickState = "I'm clickable";
+    $scope.changeClickState = function() {
+      $scope.clickState = "I'm double clickable";
+    }
   }]);
 
 DirectiveMadness.directive('mainNav', function() {

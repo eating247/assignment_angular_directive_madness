@@ -38,7 +38,13 @@
         <input type="radio" name="5" value="5" ng-model="formNumber">5
       </form> 
 
-      <p colorize color="red" background="gray">some text here</p>
+      <h3 colorize color="red" background="gray">some text here</h3>
+
+      <h3 ng-mouseup="getMouseDirection('up')" ng-mousedown="getMouseDirection('down')">Mouse button is {{direction}}</h3>
+
+      <h3 ng-mouseover="getHoverState('over')" ng-mouseleave="getHoverState('leave')">Hover state: {{hover}}</h3>
+
+      <button ng-dblclick="changeClickState()">{{clickState}}</button>
 
       <copyright>2017</copyright>
 
