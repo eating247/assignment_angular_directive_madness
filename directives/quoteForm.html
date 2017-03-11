@@ -1,10 +1,24 @@
-<form>
+<form name="quoteForm" ng-submit="createQuote(quoteForm)">
   <label>Quote</label>
-  <input type="text" name="quote" ng-model="quoteText">
+  <input type="text" name="quoteText" ng-model="quoteForm.text" ng-minlength="2" ng-maxlength="32" required>
+
+  <p ng-show="quoteForm.quoteText.$error.minlength">The quote needs to be over 2 characters.</p>
+
+  <p ng-show="quoteForm.quoteText.$error.maxlength">The quote must be under 32 characters.</p>
+
+  <p ng-show="quoteForm.quoteText.$error.required && quoteForm.quoteText.$touched">Please include a quote.</p>
+
 
   <label>Author</label>
-  <input type="text" name="author" ng-model="quoteAuthor">
+  <input type="text" name="quoteAuthor" ng-model="quoteForm.author" ng-minlength="2" ng-maxlength="32" required>
 
-  <input type="submit" name="submit" ng-click="createQuote()">
+  <p ng-show="quoteForm.quoteAuthor.$error.minlength">The author name must be over 2 characters.</p>
+
+  <p ng-show="quoteForm.quoteAuthor.$error.maxlength">The author name must be under 32 characters.</p>
+
+  <p ng-show="quoteForm.quoteAuthor.$error.required && quoteForm.quoteAuthor.$touched">Please include the author name.</p>
+
+
+  <input type="submit" Value="Create Quote">
+  <p ng-hide="quoteForm.$invalid"></p>
 </form>
-

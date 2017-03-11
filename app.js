@@ -19,18 +19,21 @@ DirectiveMadness.controller("DirectiveCtrl",
 
 DirectiveMadness.controller("QuotesCtrl", 
   ["$scope", function($scope) {
-    $scope.quoteText;
-    $scope.quoteAuthor;
+    $scope.quoteForm = {};
     $scope.quotes = [];
     $scope.quotesEmpty = function() {
       var result;
       result = $scope.quotes.length === 0 ? true : false 
       return result;
     }
-    $scope.createQuote = function() {
-      $scope.quotes.push({text: $scope.quoteText, author: $scope.quoteAuthor});
-      $scope.quoteText = "";
-      $scope.quoteAuthor = "";
+    $scope.createQuote = function(quoteForm) {
+      if ( quoteForm.$valid ) {
+        $scope.quotes.push({text: quoteForm.text, 
+                            author: quoteForm.author});
+        $scope.quoteForm.$setPristine();
+        $scope.quoteForm.$setUntouched();
+        $scope.quoteForm = {};
+      }
     };
     $scope.deleteQuote = function(quote) {
       var i = $scope.quotes.indexOf(quote);
