@@ -13,3 +13,36 @@ DirectiveMadness.directive('mainNav', function() {
   };
 });
 
+DirectiveMadness.directive("mainHeader", function() {
+  return {
+    template: "<h1 ng-transclude></h1>",
+    restrict: "E",
+    transclude: true
+  };
+});
+
+DirectiveMadness.directive("copyright", function() {
+  function linkCallback(scope, element, attributes) {
+    element.find('span').append(' copyright')
+  }
+  return {
+    template: "<p class='text-center' ng-transclude></p>",
+    restrict: "E",
+    transclude: true,
+    link: linkCallback
+  };
+});
+
+DirectiveMadness.directive('colorize', function() {
+  function linkCallback(scope, element, attributes) {
+    element.css({"color": scope.color, "background-color": scope.background});
+  }
+  return {
+    restrict: "A",
+    scope: {
+      color: "@",
+      background: "@"
+    },
+    link: linkCallback
+  }
+})
