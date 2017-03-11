@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="DirectiveMadness">
+<head>
+  <title>Warmups</title>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js" ></script>
+  <script src = "app.js" ></script>
+</head>
+<body ng-controller="DirectiveCtrl">
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <h1>WARMUPS</h1>
+      <main-nav></main-nav>   
+
+<p ng-hide="formNumber">No number is selected.</p>
+<p ng-if="formNumber && formNumber % 2 === 0">The selected number is even.</p>
+<p ng-show="formNumber && formNumber % 2 !== 0">The selected number is odd.</p>
+<p ng-show="formNumber">The currently selected number is {{ formNumber }}</p>
+
+<form>
+  <input type="radio" name="1" value="1" ng-model="formNumber">1
+  <input type="radio" name="2" value="2" ng-model="formNumber">2
+  <input type="radio" name="3" value="3" ng-model="formNumber">3
+  <input type="radio" name="4" value="4" ng-model="formNumber">4
+  <input type="radio" name="5" value="5" ng-model="formNumber">5
+</form> 
+
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
