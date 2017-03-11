@@ -1,0 +1,7 @@
+<h3>Quotes</h3>
+<p ng-show="quotesEmpty()">There are no quotes yet.</p>
+<ul ng-hide="quotesEmpty()">
+  <li ng-repeat="quote in quotes">"{{quote.text}}" --{{quote.author}}
+  <button ng-click="deleteQuote(quote)">Delete</button>
+  </li>
+</ul>

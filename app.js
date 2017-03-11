@@ -17,6 +17,27 @@ DirectiveMadness.controller("DirectiveCtrl",
     }
   }]);
 
+DirectiveMadness.controller("QuotesCtrl", 
+  ["$scope", function($scope) {
+    $scope.quoteText;
+    $scope.quoteAuthor;
+    $scope.quotes = [];
+    $scope.quotesEmpty = function() {
+      var result;
+      result = $scope.quotes.length === 0 ? true : false 
+      return result;
+    }
+    $scope.createQuote = function() {
+      $scope.quotes.push({text: $scope.quoteText, author: $scope.quoteAuthor});
+      $scope.quoteText = "";
+      $scope.quoteAuthor = "";
+    };
+    $scope.deleteQuote = function(quote) {
+      var i = $scope.quotes.indexOf(quote);
+      $scope.quotes.splice(i, 1);
+    }
+  }]);
+
 DirectiveMadness.directive('mainNav', function() {
   return {
     templateUrl: "directives/mainNav.html",
@@ -56,5 +77,21 @@ DirectiveMadness.directive('colorize', function() {
       background: "@"
     },
     link: linkCallback
+  }
+})
+
+DirectiveMadness.directive("quoteForm", function() {
+  return {
+    templateUrl: "directives/quoteForm.html",
+    restrict: "E",
+    // scope: true
+  }
+});
+
+DirectiveMadness.directive("quoteIndex", function() {
+  return {
+    templateUrl: "directives/quoteIndex.html",
+    restrict: "E",
+    // scope: true
   }
 })
