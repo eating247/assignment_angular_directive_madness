@@ -41,6 +41,33 @@ DirectiveMadness.controller("QuotesCtrl",
     }
   }]);
 
+DirectiveMadness.controller("ScopesCtrl",
+  ["$scope", function($scope) {
+    $scope.oneWay = "string";
+    $scope.twoWay = "adlskfjsa";
+    $scope.sayHello = function(name) {
+      console.log("Hello..." + name);
+    };
+  }]);
+
+DirectiveMadness.directive('isolated', function() {
+  function linkCallback(scope) {
+    scope.twoWay = "modified twoway string";
+    scope.oneWay = "modified oneway string";
+    scope.sayHello  = function(name) { console.log("HELLOOOOO" +  name + ' from isolated scope!!!')}
+  }
+  return {
+    templateUrl: "directives/isolated.html",
+    restrict: 'AE',
+    scope: {
+      twoWay: "=",
+      oneWay: "@",
+      sayHello: "&"
+    },
+    link: linkCallback
+  }
+})
+
 DirectiveMadness.directive('mainNav', function() {
   return {
     templateUrl: "directives/mainNav.html",

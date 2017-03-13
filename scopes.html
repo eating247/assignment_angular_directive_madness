@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="DirectiveMadness">
+<head>
+  <title>Scopes</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js" ></script>
+  <script src = "app.js" ></script>
+</head>
+<body ng-controller="ScopesCtrl">
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <main-header>Scopes</main-header>
+      <main-nav></main-nav>
+
+      <label>oneWay</label>
+      <p>{{oneWay}}</p>
+      <input type="text" name="one" ng-model="oneWay"><br>
+
+
+      <label>twoWay</label>
+      <p>{{twoWay}}</p>
+      <input type="text" name="two" ng-model="twoWay">
+
+
+<form>
+  <input type="text" name="hellovalue" ng-model="helloName">
+  <input type="submit" ng-click="sayHello(helloName)">
+</form>
+
+      <hr>
+
+      <p>Isolated</p>
+      <isolated></isolated>
+
+      <hr>
+
+      <copyright>2017</copyright>
+
+
+    </div>
+
+
+
+  </div>
+</div>
+
+
+</body>
+</html>
